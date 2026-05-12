@@ -1,0 +1,107 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 38,
+
+    "modules-left": [
+        "hyprland/workspaces",
+        "mpris"
+    ],
+
+    "modules-center": [
+        "hyprland/language",
+        "clock",
+        "tray"
+    ],
+  
+    "modules-right": [
+        "custom/networkspeed",
+        "pulseaudio",
+        "backlight",
+        "custom/cpu-temp",
+        "custom/nvidia-temp",
+        "network",
+        "battery",
+    ],
+    "backlight":{
+        "device": "intel_backlight", // або amdgpu_bl0 залежно від заліза
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", "", "", "", "", "", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "tooltip": false
+    },
+    "custom/networkspeed": {
+        "exec": "~/.config/waybar/scripts/speed.sh",
+        "interval": 1,
+        "return-type": "plain",
+        "format": "{}" 
+    },
+    "mpris": {
+        "format": " {artist} - {title}",
+        "format-paused": " {artist} - {title}",
+        "format-stopped": "  No media playing",
+        "max-length": 50,
+        "on-click": "playerctl play-pause",
+        "on-click-right": "playerctl next",
+        "tooltip-format": "{player} ({status})",
+    },
+
+
+    "hyprland/workspaces": {
+        "format": "{name}",
+        "on-click": "activate"
+    },
+
+    "clock": {
+        "format": "  {:%H:%M}",
+        "tooltip-format": "{:%A, %d %B %Y}"
+    },
+
+    "memory": {
+        "format": "󰍛  {}%"
+    },
+
+    "network": {
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": "󰈀 Connected",
+        "format-disconnected": "󰖪 Offline"
+    },
+
+    "pulseaudio": {
+        "format": "{icon}  {volume}%",
+        "format-muted": "󰝟 Muted",
+        "format-icons": {
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+
+    "battery": {
+        "format": "  {capacity}%",
+        "format-charging": " {capacity}%"
+    },
+
+    "tray": {
+        "spacing": 10,
+        "icon-size" : 24
+    },
+    "custom/cpu-temp": {
+        "interval": 2,
+        "exec": "echo \" $(awk '{print $1/1000 \"°C\"}' /sys/class/hwmon/hwmon5/temp1_input)\"",
+        "format": "{}" 
+    },
+    "custom/nvidia-temp": {
+        "interval": 1,
+        "exec": "nvidia-smi --query-gpu=temperature.gpu --format=csv,noheader",
+        "format": "󰢮 {}°C"
+    },
+      "hyprland/language": {
+        "format": "{}",
+        "format-en": "en",
+        "format-uk": "ua"
+    },
+}
