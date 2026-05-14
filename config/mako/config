@@ -1,0 +1,23 @@
+# Основні налаштування
+font=JetBrainsMono Nerd Font 14
+width=500
+height=200
+margin=10
+padding=15
+border-size=2
+border-radius=12
+icons=1
+max-icon-size=48
+
+# Кольори (можна підібрати під вашу тему)
+background-color=#1e1e2e
+text-color=#cdd6f4
+border-color=#89b4fa
+progress-color=over #313244
+
+# Тайм-аут (у мілісекундах, 0 — не закривати автоматично)
+default-timeout=5000
+
+[urgency=high]
+border-color=#f38ba8
+default-timeout=0
